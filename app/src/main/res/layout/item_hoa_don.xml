@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@android:color/white">
+
+    <!-- Thông tin hóa đơn -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Mã hóa đơn -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Mã hóa đơn:"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/tvMaHoaDon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Mã hóa đơn"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Tên nhân viên -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Tên nhân viên:"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/tvTenNhanVien"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tên nhân viên"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Tên khách hàng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:text="Tên khách hàng:"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvTenKhachHang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Ngày lập -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Ngày lập:"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/tvNgayLap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ngày lập"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Tổng tiền -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền:"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/tvTongTien"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Nút xóa hóa đơn -->
+    <ImageView
+        android:id="@+id/imgXoaHoaDon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:tint="@android:color/holo_red_dark" />
+</LinearLayout>
