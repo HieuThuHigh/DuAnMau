@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white"
-    tools:context=".ui.QuanLyDanhMucActivity">
+    android:background="@android:color/white">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar

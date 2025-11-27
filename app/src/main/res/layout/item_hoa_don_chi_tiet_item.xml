@@ -16,7 +16,6 @@
         android:layout_gravity="center_vertical"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_products"
-        android:background="@drawable/image_rounded_bg"
         android:clipToOutline="true" />
 
     <!-- Thông tin sản phẩm ở giữa -->

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@android:color/white"
-    tools:context=".ui.QuanLyHoaDonActivity">
+    >
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
