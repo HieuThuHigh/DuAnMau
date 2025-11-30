@@ -1,4 +1,4 @@
-package ph41045.fpoly.duanmau_ph41045.adapter;
+package com.example.sampleandroidproject.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.sampleandroidproject.R;
 import com.example.sampleandroidproject.dto.HoaDonDto;
+import com.example.sampleandroidproject.model.HoaDon;
 
 import java.util.List;
 

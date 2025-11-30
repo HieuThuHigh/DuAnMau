@@ -1,4 +1,4 @@
-package ph41045.fpoly.duanmau_ph41045.adapter;
+package com.example.sampleandroidproject.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
