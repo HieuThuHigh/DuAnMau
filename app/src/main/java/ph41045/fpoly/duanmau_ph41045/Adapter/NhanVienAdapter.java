@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.adapter;
+package ph41045.fpoly.duanmau_ph41045.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.model.NhanVien;
+
+import ph41045.fpoly.duanmau_ph41045.Model.NhanVien;
+import ph41045.fpoly.duanmau_ph41045.R;
+
 
 import java.text.NumberFormat;
 import java.util.List;

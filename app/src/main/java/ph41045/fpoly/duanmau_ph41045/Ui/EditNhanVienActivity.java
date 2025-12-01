@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,20 +6,20 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.dto.ChucVu;
-import com.example.sampleandroidproject.model.NhanVien;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Dto.ChucVu;
+import ph41045.fpoly.duanmau_ph41045.Model.NhanVien;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 public class EditNhanVienActivity extends AppCompatActivity {
     private EditText edtMaNhanVien, edtTenNhanVien, edtDiaChi, edtLuong, edtMatKhau;

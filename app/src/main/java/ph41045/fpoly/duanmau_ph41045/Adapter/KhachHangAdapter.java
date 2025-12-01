@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.adapter;
+package ph41045.fpoly.duanmau_ph41045.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.model.DanhMuc;
-import com.example.sampleandroidproject.model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.Model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.R;
+
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.HoaDonAdapter;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.dto.HoaDonDto;
+import ph41045.fpoly.duanmau_ph41045.Adapter.HoaDonAdapter;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Dto.HoaDonDto;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.util.List;
 import java.util.Objects;

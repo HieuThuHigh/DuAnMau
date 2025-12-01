@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,15 +11,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.GioHangAdapter;
-import com.example.sampleandroidproject.common.Common;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.common.GioHangItem;
-import com.example.sampleandroidproject.model.HoaDon;
-import com.example.sampleandroidproject.model.HoaDonChiTiet;
-import com.example.sampleandroidproject.model.KhachHang;
-import com.example.sampleandroidproject.model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.Adapter.GioHangAdapter;
+import ph41045.fpoly.duanmau_ph41045.Common.Common;
+import ph41045.fpoly.duanmau_ph41045.Common.GioHangItem;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+
+import ph41045.fpoly.duanmau_ph41045.Model.HoaDon;
+import ph41045.fpoly.duanmau_ph41045.Model.HoaDonChiTiet;
+import ph41045.fpoly.duanmau_ph41045.Model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.Model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;

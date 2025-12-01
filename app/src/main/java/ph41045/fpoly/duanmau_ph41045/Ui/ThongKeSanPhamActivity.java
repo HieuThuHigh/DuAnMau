@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import static android.view.View.GONE;
 
@@ -13,10 +13,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.TopSanPhamAdapter;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.model.TopSanPham;
+import ph41045.fpoly.duanmau_ph41045.Adapter.TopSanPhamAdapter;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.TopSanPham;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.util.Calendar;
 import java.util.List;

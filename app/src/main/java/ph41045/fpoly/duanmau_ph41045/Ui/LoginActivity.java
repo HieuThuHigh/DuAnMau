@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,15 +10,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.common.Common;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.model.DanhMuc;
-import com.example.sampleandroidproject.model.HoaDon;
-import com.example.sampleandroidproject.model.HoaDonChiTiet;
-import com.example.sampleandroidproject.model.KhachHang;
-import com.example.sampleandroidproject.model.NhanVien;
-import com.example.sampleandroidproject.model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.Common.Common;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.DanhMuc;
+import ph41045.fpoly.duanmau_ph41045.Model.HoaDon;
+import ph41045.fpoly.duanmau_ph41045.Model.HoaDonChiTiet;
+import ph41045.fpoly.duanmau_ph41045.Model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.Model.NhanVien;
+import ph41045.fpoly.duanmau_ph41045.Model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtUsername, edtPassword;
@@ -68,168 +68,151 @@ public class LoginActivity extends AppCompatActivity {
     private void checkDangNhap() {
         String maNhanVien = edtUsername.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
+
+        if (maNhanVien.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         NhanVien nhanVien = db.layNhanVienBangMaNV(maNhanVien);
 
-        if (password.equals(nhanVien.getMatKhau())) {
-            if (chkRemember.isChecked()) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("username", maNhanVien);
-                editor.putString("password", password);
-                editor.putBoolean("remember", true);
-                editor.apply();
-            } else {
-                sharedPreferences.edit().clear().apply();
-            }
-
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("CHUC_VU", nhanVien.getChucVu()); // truyền chức vụ
-            startActivity(intent);
-            Common.maNhanVien = maNhanVien;
-            finish();
-        } else {
-            Toast.makeText(this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+        if (nhanVien == null) {
+            Toast.makeText(this, "Tài khoản không tồn tại!", Toast.LENGTH_SHORT).show();
+            return;   // <-- Quan trọng, tránh gọi getMatKhau()
         }
+
+        if (!password.equals(nhanVien.getMatKhau())) {
+            Toast.makeText(this, "Sai mật khẩu!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Lưu tài khoản nếu tick Remember
+        if (chkRemember.isChecked()) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("username", maNhanVien);
+            editor.putString("password", password);
+            editor.putBoolean("remember", true);
+            editor.apply();
+        } else {
+            sharedPreferences.edit().clear().apply();
+        }
+
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("CHUC_VU", nhanVien.getChucVu());
+        startActivity(intent);
+        Common.maNhanVien = maNhanVien;
+        finish();
     }
+
 
     public void taoDuLieuSanPham() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        SanPham sp1 = new SanPham("SP001", "Nước ngọt Calpis", 12000, 50, "Lon", "2024-02-08", "DM01");
-        db.themSanPham(sp1);
+        db.themSanPham(new SanPham("SP001", "Nước ép Táo", 20000, 50, "Chai", "2025-10-01", "DM001"));
+        db.themSanPham(new SanPham("SP002", "Trà Xanh Matcha", 25000, 30, "Ly", "2025-10-02", "DM001"));
+        db.themSanPham(new SanPham("SP003", "Bánh Mochi Vani", 30000, 20, "Hộp", "2025-10-03", "DM002"));
+        db.themSanPham(new SanPham("SP004", "Sữa Chua Hy Lạp", 18000, 40, "Chai", "2025-10-04", "DM003"));
+        db.themSanPham(new SanPham("SP005", "Mì Udon Nhật", 12000, 70, "Gói", "2025-10-05", "DM004"));
+        db.themSanPham(new SanPham("SP006", "Nước suối Sapporo", 8000, 60, "Chai", "2025-10-06", "DM001"));
+        db.themSanPham(new SanPham("SP007", "Snack Khoai Tây", 15000, 25, "Gói", "2025-10-07", "DM005"));
+        db.themSanPham(new SanPham("SP008", "Trà Lúa Mạch Vị Mật Ong", 27000, 15, "Hộp", "2025-10-08", "DM006"));
+        db.themSanPham(new SanPham("SP009", "Dầu mè Hảo Hạng", 52000, 18, "Chai", "2025-10-09", "DM007"));
+        db.themSanPham(new SanPham("SP010", "Muối Biển Premium", 19000, 35, "Bao", "2025-10-10", "DM008"));
 
-        SanPham sp2 = new SanPham("SP002", "Trà xanh Ito En", 10000, 40, "Lon", "2024-02-08", "DM01");
-        db.themSanPham(sp2);
-
-        SanPham sp3 = new SanPham("SP003", "Bánh Pocky", 25000, 30, "Hộp", "2024-02-07", "DM02");
-        db.themSanPham(sp3);
-
-        SanPham sp4 = new SanPham("SP004", "Sữa Meiji", 15000, 20, "Hộp", "2024-02-06", "DM03");
-        db.themSanPham(sp4);
-
-        SanPham sp5 = new SanPham("SP005", "Mì Udon", 5000, 100, "Gói", "2024-02-05", "DM04");
-        db.themSanPham(sp5);
-
-        SanPham sp6 = new SanPham("SP006", "Nước khoáng Suntory", 8000, 60, "Chai", "2024-02-04", "DM01");
-        db.themSanPham(sp6);
-
-        SanPham sp7 = new SanPham("SP007", "Snack Jagabee", 12000, 45, "Gói", "2024-02-08", "DM05");
-        db.themSanPham(sp7);
-
-        SanPham sp8 = new SanPham("SP008", "Trà gạo lứt Genmaicha", 30000, 25, "Hộp", "2024-02-08", "DM06");
-        db.themSanPham(sp8);
-
-        SanPham sp9 = new SanPham("SP009", "Dầu ăn Ajinomoto", 45000, 15, "Chai", "2024-02-03", "DM07");
-        db.themSanPham(sp9);
-
-        SanPham sp10 = new SanPham("SP010", "Đường nâu Okinawa", 20000, 50, "Bao", "2024-02-02", "DM08");
-        db.themSanPham(sp10);
-
-        SanPham sp11 = new SanPham("SP011", "Nước tương Kikkoman", 15000, 40, "Chai", "2024-02-09", "DM09");
-        db.themSanPham(sp11);
-
-        SanPham sp12 = new SanPham("SP012", "Bánh mochi Nhật Bản", 32000, 35, "Hộp", "2024-02-10", "DM02");
-        db.themSanPham(sp12);
-
-        SanPham sp13 = new SanPham("SP013", "Bia Asahi", 45000, 25, "Lon", "2024-02-11", "DM10");
-        db.themSanPham(sp13);
-
-        SanPham sp14 = new SanPham("SP014", "Dầu gội Tsubaki", 90000, 20, "Chai", "2024-02-12", "DM11");
-        db.themSanPham(sp14);
-
-        SanPham sp15 = new SanPham("SP015", "Sữa tươi Morinaga", 12000, 30, "Hộp", "2024-02-13", "DM03");
-        db.themSanPham(sp15);
-
-        SanPham sp16 = new SanPham("SP016", "Mì Ramen", 4000, 150, "Gói", "2024-02-14", "DM04");
-        db.themSanPham(sp16);
-
-        SanPham sp17 = new SanPham("SP017", "Bột giặt Attack", 125000, 20, "Bao", "2024-02-15", "DM12");
-        db.themSanPham(sp17);
-
-        SanPham sp18 = new SanPham("SP018", "Dưa lưới Nhật", 18000, 50, "Kg", "2024-02-16", "DM13");
-        db.themSanPham(sp18);
-
-        SanPham sp19 = new SanPham("SP019", "Táo Aomori", 50000, 40, "Kg", "2024-02-17", "DM13");
-        db.themSanPham(sp19);
-
-        SanPham sp20 = new SanPham("SP020", "Rau cải Mizuna", 25000, 60, "Kg", "2024-02-18", "DM14");
-        db.themSanPham(sp20);
-
+        db.themSanPham(new SanPham("SP011", "Nước Tương Nhật", 22000, 25, "Chai", "2025-11-01", "DM009"));
+        db.themSanPham(new SanPham("SP012", "Bánh Dorayaki Socola", 35000, 15, "Hộp", "2025-11-02", "DM002"));
+        db.themSanPham(new SanPham("SP013", "Bia Kirin", 47000, 30, "Lon", "2025-11-03", "DM010"));
+        db.themSanPham(new SanPham("SP014", "Dầu gội Nhật Bản", 98000, 20, "Chai", "2025-11-04", "DM011"));
+        db.themSanPham(new SanPham("SP015", "Sữa Tươi Organic", 18000, 28, "Hộp", "2025-11-05", "DM003"));
+        db.themSanPham(new SanPham("SP016", "Mì Ramen Chay", 13000, 80, "Gói", "2025-11-06", "DM004"));
+        db.themSanPham(new SanPham("SP017", "Bột giặt Nhật", 140000, 18, "Bao", "2025-11-07", "DM012"));
+        db.themSanPham(new SanPham("SP018", "Nho Đỏ Cao Cấp", 46000, 35, "Kg", "2025-11-08", "DM013"));
+        db.themSanPham(new SanPham("SP019", "Lê Mỹ Ngon", 56000, 30, "Kg", "2025-11-09", "DM013"));
+        db.themSanPham(new SanPham("SP020", "Rau Cải Bó Xôi", 23000, 45, "Kg", "2025-11-10", "DM014"));
     }
 
     public void taoDuLieuKhachHang() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        db.themKhachHang(new KhachHang("KH001", "Nặc danh", "", "0000", ""));
-        db.themKhachHang(new KhachHang("KH002", "Trần Thị Bích", "456 Đường XYZ, Hà Nội", "0988777666", "tranthibich@example.com"));
-        db.themKhachHang(new KhachHang("KH003", "Lê Hoàng Nam", "789 Đường DEF, Đà Nẵng", "0912333444", "lehoangnam@example.com"));
-        db.themKhachHang(new KhachHang("KH004", "Phạm Minh Khang", "101 Đường GHI, Cần Thơ", "0922112233", "phamminhkhang@example.com"));
-        db.themKhachHang(new KhachHang("KH005", "Võ Hồng Phúc", "202 Đường JKL, Hải Phòng", "0933445566", "vohongphuc@example.com"));
-        db.themKhachHang(new KhachHang("KH006", "Bùi Thị Lan", "303 Đường MNO, Nha Trang", "0944556677", "buithilan@example.com"));
-        db.themKhachHang(new KhachHang("KH007", "Đặng Quốc Duy", "404 Đường PQR, Huế", "0955667788", "dangquocduy@example.com"));
-        db.themKhachHang(new KhachHang("KH008", "Ngô Văn Hùng", "505 Đường STU, Vũng Tàu", "0966778899", "ngovanhung@example.com"));
-        db.themKhachHang(new KhachHang("KH009", "Hoàng Thị Hạnh", "606 Đường VWX, Biên Hòa", "0977889900", "hoangthihanh@example.com"));
-        db.themKhachHang(new KhachHang("KH010", "Trương Minh Tú", "707 Đường YZA, Bình Dương", "0988990011", "truongminhtu@example.com"));
-        db.themKhachHang(new KhachHang("KH011", "Đoàn Văn Thành", "808 Đường BCD, Long An", "0999001122", "doanvanthanh@example.com"));
-        db.themKhachHang(new KhachHang("KH012", "Mai Thị Ngọc", "909 Đường CDE, Tây Ninh", "0910012233", "maithingoc@example.com"));
-        db.themKhachHang(new KhachHang("KH013", "Phan Văn Mạnh", "111 Đường EFG, Vĩnh Long", "0921123344", "phanvanmanh@example.com"));
-        db.themKhachHang(new KhachHang("KH014", "Trần Hoàng Lộc", "222 Đường GHI, Sóc Trăng", "0932234455", "tranhoangloc@example.com"));
-        db.themKhachHang(new KhachHang("KH015", "Nguyễn Thị Thanh", "333 Đường IJK, Bạc Liêu", "0943345566", "nguyenthithanh@example.com"));
-        db.themKhachHang(new KhachHang("KH016", "Lý Minh Đức", "444 Đường KLM, Cà Mau", "0954456677", "lyminhduc@example.com"));
-        db.themKhachHang(new KhachHang("KH017", "Vương Hồng Sơn", "555 Đường MNO, Đắk Lắk", "0965567788", "vuonghongson@example.com"));
-        db.themKhachHang(new KhachHang("KH018", "Hà Thị Nhung", "666 Đường OPQ, Gia Lai", "0976678899", "hathinhung@example.com"));
-        db.themKhachHang(new KhachHang("KH019", "Trịnh Văn Dũng", "777 Đường QRS, Kon Tum", "0987789900", "trinhvandung@example.com"));
-        db.themKhachHang(new KhachHang("KH020", "Tống Hoàng Anh", "888 Đường STU, Phú Yên", "0998890011", "tonghoanganh@example.com"));
+        db.themKhachHang(new KhachHang("KH001", "Khách lẻ A", "", "0000", ""));
+        db.themKhachHang(new KhachHang("KH002", "Nguyễn Minh Anh", "12 Lý Thường Kiệt, Hà Nội", "0988123456", "minhanh@example.com"));
+        db.themKhachHang(new KhachHang("KH003", "Trần Thu Hương", "45 CMT8, TP.HCM", "0912345678", "thuhuong@example.com"));
+        db.themKhachHang(new KhachHang("KH004", "Phạm Văn Long", "33 Phan Đình Phùng, Huế", "0933224455", "vanlong@example.com"));
+        db.themKhachHang(new KhachHang("KH005", "Võ Hoàng Nam", "55 Lê Lợi, Đà Nẵng", "0977554433", "hoangnam@example.com"));
+        db.themKhachHang(new KhachHang("KH006", "Bùi Minh Tâm", "200 Nguyễn Thị Minh Khai, HCM", "0998877665", "minhtam@example.com"));
+        db.themKhachHang(new KhachHang("KH007", "Đoàn Thế Dũng", "88 Trần Bình Trọng, Hải Phòng", "0944551122", "thedung@example.com"));
+        db.themKhachHang(new KhachHang("KH008", "Ngô Văn Hậu", "55 Lê Lai, Vũng Tàu", "0922337788", "vanhau@example.com"));
+        db.themKhachHang(new KhachHang("KH009", "Hoàng Thị Lan", "33 Nguyễn Huệ, Huế", "0933445566", "thilan@example.com"));
+        db.themKhachHang(new KhachHang("KH010", "Trương Hữu Tâm", "145 Điện Biên Phủ, Đà Nẵng", "0966778899", "huutam@example.com"));
+
+        db.themKhachHang(new KhachHang("KH011", "Đinh Hải Nam", "12 Quang Trung, Hà Nội", "0909123123", "hainam@example.com"));
+        db.themKhachHang(new KhachHang("KH012", "Phan Nhật Linh", "34 Nguyễn Công Trứ, TP.HCM", "0977332211", "nhatlinh@example.com"));
+        db.themKhachHang(new KhachHang("KH013", "Lê Tấn Duy", "89 Trần Quang Khải, Cần Thơ", "0911223344", "tanduy@example.com"));
+        db.themKhachHang(new KhachHang("KH014", "Trần Khánh Minh", "66 Nguyễn Du, Hải Phòng", "0933556677", "khanhminh@example.com"));
+        db.themKhachHang(new KhachHang("KH015", "Nguyễn Hoàng Bình", "199 Trường Chinh, Hà Nội", "0988223344", "hoangbinh@example.com"));
+        db.themKhachHang(new KhachHang("KH016", "Lý Minh Quân", "77 Phạm Văn Đồng, HCM", "0966223344", "minhquan@example.com"));
+        db.themKhachHang(new KhachHang("KH017", "Vương Khánh Huy", "11 Nguyễn Văn Trỗi, Đà Nẵng", "0944556677", "khanhhuy@example.com"));
+        db.themKhachHang(new KhachHang("KH018", "Hà Gia Phúc", "22 Lê Văn Sỹ, Huế", "0923445566", "giaphuc@example.com"));
+        db.themKhachHang(new KhachHang("KH019", "Trịnh Hoàng Nam", "14 Hai Bà Trưng, Đà Nẵng", "0933667788", "hoangnam@example.com"));
+        db.themKhachHang(new KhachHang("KH020", "Tống Gia Bảo", "88 Nguyễn Thượng Hiền, TP.HCM", "0977889900", "giabao@example.com"));
     }
+
+
 
     public void taoDuLieuDanhMuc() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        db.themDanhMuc(new DanhMuc("DM001", "Đồ uống"));
+        db.themDanhMuc(new DanhMuc("DM001", "Nước uống"));
         db.themDanhMuc(new DanhMuc("DM002", "Bánh kẹo"));
-        db.themDanhMuc(new DanhMuc("DM003", "Sữa và chế phẩm từ sữa"));
-        db.themDanhMuc(new DanhMuc("DM004", "Mì - Cháo - Phở"));
-        db.themDanhMuc(new DanhMuc("DM005", "Thực phẩm khô"));
-        db.themDanhMuc(new DanhMuc("DM006", "Gia vị"));
-        db.themDanhMuc(new DanhMuc("DM007", "Đồ hộp"));
-        db.themDanhMuc(new DanhMuc("DM008", "Rau củ quả"));
-        db.themDanhMuc(new DanhMuc("DM009", "Thịt - Hải sản"));
-        db.themDanhMuc(new DanhMuc("DM010", "Sản phẩm đông lạnh"));
-        db.themDanhMuc(new DanhMuc("DM011", "Đồ ăn nhanh"));
-        db.themDanhMuc(new DanhMuc("DM012", "Thực phẩm chức năng"));
-        db.themDanhMuc(new DanhMuc("DM013", "Hóa mỹ phẩm"));
-        db.themDanhMuc(new DanhMuc("DM014", "Đồ dùng gia đình"));
-        db.themDanhMuc(new DanhMuc("DM015", "Sản phẩm cho bé"));
-        db.themDanhMuc(new DanhMuc("DM016", "Đồ dùng văn phòng"));
+        db.themDanhMuc(new DanhMuc("DM003", "Sữa & chế phẩm"));
+        db.themDanhMuc(new DanhMuc("DM004", "Mì & Ramen"));
+        db.themDanhMuc(new DanhMuc("DM005", "Snack & Ăn vặt"));
+        db.themDanhMuc(new DanhMuc("DM006", "Trà & Cà phê"));
+        db.themDanhMuc(new DanhMuc("DM007", "Gia vị"));
+        db.themDanhMuc(new DanhMuc("DM008", "Đường & Muối"));
+        db.themDanhMuc(new DanhMuc("DM009", "Nước tương & Nước mắm"));
+        db.themDanhMuc(new DanhMuc("DM010", "Đồ uống có cồn"));
+        db.themDanhMuc(new DanhMuc("DM011", "Chăm sóc cá nhân"));
+        db.themDanhMuc(new DanhMuc("DM012", "Chăm sóc nhà cửa"));
+        db.themDanhMuc(new DanhMuc("DM013", "Trái cây"));
+        db.themDanhMuc(new DanhMuc("DM014", "Rau củ"));
+        db.themDanhMuc(new DanhMuc("DM015", "Đồ dùng gia đình"));
+        db.themDanhMuc(new DanhMuc("DM016", "Văn phòng phẩm"));
         db.themDanhMuc(new DanhMuc("DM017", "Thiết bị điện tử"));
-        db.themDanhMuc(new DanhMuc("DM018", "Sản phẩm thời trang"));
+        db.themDanhMuc(new DanhMuc("DM018", "Quần áo & Thời trang"));
         db.themDanhMuc(new DanhMuc("DM019", "Đồ thể thao"));
-        db.themDanhMuc(new DanhMuc("DM020", "Sách - Văn hóa phẩm"));
+        db.themDanhMuc(new DanhMuc("DM020", "Sách & Văn hóa phẩm"));
     }
+
+
+
 
     public void taoDuLieuNhanVien() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        db.themNhanVien(new NhanVien("NV001", "Nguyễn Văn An", "12 Lý Tự Trọng, Q1, TP.HCM", 1, 25000000, "admin123"));
-        db.themNhanVien(new NhanVien("NV002", "Trần Thị Cúc", "34 Lê Lợi, Q3, TP.HCM", 0, 12000000, "sales456"));
-        db.themNhanVien(new NhanVien("NV003", "Lê Minh Hùng", "56 Trần Hưng Đạo, Hà Nội", 0, 20000000, "accounting789"));
-        db.themNhanVien(new NhanVien("NV004", "Phạm Đức Thịnh", "78 Nguyễn Du, Đà Nẵng", 0, 9000000, "warehouse101"));
-        db.themNhanVien(new NhanVien("NV005", "Võ Hoàng Yến", "90 Pasteur, Hải Phòng", 0, 11000000, "marketing202"));
-        db.themNhanVien(new NhanVien("NV006", "Bùi Văn Hòa", "21 Phan Đình Phùng, Nha Trang", 0, 18000000, "hr303"));
-        db.themNhanVien(new NhanVien("NV007", "Đặng Ngọc Hiếu", "43 Hoàng Hoa Thám, Huế", 0, 7000000, "security404"));
-        db.themNhanVien(new NhanVien("NV008", "Ngô Thanh Bình", "65 Cách Mạng Tháng 8, Vũng Tàu", 0, 15000000, "it505"));
-        db.themNhanVien(new NhanVien("NV009", "Hoàng Thị Dung", "87 Hai Bà Trưng, Biên Hòa", 0, 17000000, "assistant606"));
-        db.themNhanVien(new NhanVien("NV010", "Trương Đình Khoa", "109 Nguyễn Văn Trỗi, Bình Dương", 0, 8000000, "delivery707"));
-        db.themNhanVien(new NhanVien("NV011", "Đoàn Thanh Tùng", "121 Điện Biên Phủ, Long An", 0, 10000000, "cashier808"));
-        db.themNhanVien(new NhanVien("NV012", "Mai Thị Lan", "143 Võ Văn Kiệt, Tây Ninh", 0, 9500000, "support909"));
-        db.themNhanVien(new NhanVien("NV013", "Phan Ngọc Quỳnh", "165 Tôn Đức Thắng, Vĩnh Long", 0, 11000000, "consultant111"));
-        db.themNhanVien(new NhanVien("NV014", "Trần Hoàng Nam", "187 Nguyễn Tri Phương, Sóc Trăng", 0, 22000000, "sales_manager222"));
-        db.themNhanVien(new NhanVien("NV015", "Nguyễn Thị Bích", "209 Trần Quang Khải, Bạc Liêu", 0, 24000000, "finance333"));
-        db.themNhanVien(new NhanVien("NV016", "Lý Mạnh Phát", "231 Nguyễn Đình Chiểu, Cà Mau", 0, 10500000, "inventory444"));
-        db.themNhanVien(new NhanVien("NV017", "Vương Hữu Đạt", "253 Võ Thị Sáu, Đắk Lắk", 0, 9800000, "maintenance555"));
-        db.themNhanVien(new NhanVien("NV018", "Hà Thanh Hải", "275 Bạch Đằng, Gia Lai", 0, 13000000, "designer666"));
-        db.themNhanVien(new NhanVien("NV019", "Trịnh Minh Lộc", "297 Đống Đa, Kon Tum", 0, 12000000, "market777"));
-        db.themNhanVien(new NhanVien("NV020", "Tống Hoàng Tú", "319 Hùng Vương, Phú Yên", 0, 16000000, "developer888"));
+        db.themNhanVien(new NhanVien("NV001", "Ngô Minh Tùng", "12 Phan Bội Châu, Hà Nội", 1, 25000000, "admin01"));
+        db.themNhanVien(new NhanVien("NV002", "Trần Hải Linh", "45 Lê Lợi, Đà Nẵng", 0, 12000000, "sale01"));
+        db.themNhanVien(new NhanVien("NV003", "Lê Đức Duy", "78 Hai Bà Trưng, TP.HCM", 0, 19500000, "acc01"));
+        db.themNhanVien(new NhanVien("NV004", "Phạm Hoài Nam", "33 Trần Đại Nghĩa, Huế", 0, 9000000, "store01"));
+        db.themNhanVien(new NhanVien("NV005", "Võ Thanh Tâm", "92 Nguyễn Huệ, Hà Nội", 0, 11000000, "mk01"));
+        db.themNhanVien(new NhanVien("NV006", "Bùi Nhật Hậu", "11 Phan Chu Trinh, Hải Phòng", 0, 17000000, "hr01"));
+        db.themNhanVien(new NhanVien("NV007", "Đặng Duy Minh", "59 Nguyễn Đình Chiểu, Huế", 0, 8000000, "sec01"));
+        db.themNhanVien(new NhanVien("NV008", "Ngô Minh Hải", "66 CMT8, TP.HCM", 0, 15500000, "it01"));
+        db.themNhanVien(new NhanVien("NV009", "Hoàng Thị Lan", "91 Lê Văn Sỹ, Đà Nẵng", 0, 16000000, "assist01"));
+        db.themNhanVien(new NhanVien("NV010", "Trương Hữu Lộc", "10 Điện Biên Phủ, Đà Lạt", 0, 9500000, "ship01"));
+
+        db.themNhanVien(new NhanVien("NV011", "Đoàn Quang Vinh", "11 Hùng Vương, Huế", 0, 10500000, "cash01"));
+        db.themNhanVien(new NhanVien("NV012", "Mai Châu Uyên", "55 Hoàng Diệu, Hà Nội", 0, 9800000, "support01"));
+        db.themNhanVien(new NhanVien("NV013", "Phan Bảo Long", "200 Quang Trung, TP.HCM", 0, 12200000, "tv01"));
+        db.themNhanVien(new NhanVien("NV014", "Trần Nhật Minh", "70 Trần Hưng Đạo, Đà Nẵng", 0, 21000000, "sales01"));
+        db.themNhanVien(new NhanVien("NV015", "Nguyễn Hoài Lan", "93 Nguyễn Văn Trỗi, Bình Dương", 0, 25000000, "finance01"));
+        db.themNhanVien(new NhanVien("NV016", "Lý Đại Phú", "22 Võ Thị Sáu, Hải Phòng", 0, 10000000, "inv01"));
+        db.themNhanVien(new NhanVien("NV017", "Vương Thành Đạt", "39 Bạch Đằng, Nha Trang", 0, 9200000, "repair01"));
+        db.themNhanVien(new NhanVien("NV018", "Hà Quốc Việt", "77 Lê Lai, TP.HCM", 0, 13500000, "design01"));
+        db.themNhanVien(new NhanVien("NV019", "Trịnh Minh Huy", "188 Cách Mạng Tháng 8, Hà Nội", 0, 12100000, "ads01"));
+        db.themNhanVien(new NhanVien("NV020", "Tống Thiên Phúc", "56 Lê Quý Đôn, Đà Nẵng", 0, 16800000, "dev01"));
     }
+
 
     public void taoDuLieuHoaDon() {
 

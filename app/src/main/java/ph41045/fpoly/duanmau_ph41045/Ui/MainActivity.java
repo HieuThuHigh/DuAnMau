@@ -1,4 +1,4 @@
-package ph41045.fpoly.duanmau_ph41045;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import static android.view.View.GONE;
 
@@ -8,11 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import java.util.Objects;
+
+import ph41045.fpoly.duanmau_ph41045.R;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

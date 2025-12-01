@@ -1,17 +1,15 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.R;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.util.Calendar;
 

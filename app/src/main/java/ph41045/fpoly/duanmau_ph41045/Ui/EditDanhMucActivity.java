@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.model.DanhMuc;
-
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.DanhMuc;
+import ph41045.fpoly.duanmau_ph41045.R;
 public class EditDanhMucActivity extends AppCompatActivity {
     private EditText edtMaDanhMuc, edtTenDanhMuc;
     private DatabaseHelper db;

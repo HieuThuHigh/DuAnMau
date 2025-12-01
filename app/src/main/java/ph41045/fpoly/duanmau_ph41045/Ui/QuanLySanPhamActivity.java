@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -10,10 +10,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -25,12 +21,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.SanPhamAdapter;
-import com.example.sampleandroidproject.common.Common;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.common.GioHang;
-import com.example.sampleandroidproject.model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.Adapter.SanPhamAdapter;
+import ph41045.fpoly.duanmau_ph41045.Common.Common;
+import ph41045.fpoly.duanmau_ph41045.Common.GioHang;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;

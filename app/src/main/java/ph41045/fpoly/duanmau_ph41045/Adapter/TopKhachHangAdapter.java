@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.adapter;
+package ph41045.fpoly.duanmau_ph41045.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,23 +8,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.model.TopKhachHang;
+import ph41045.fpoly.duanmau_ph41045.Model.TopKhachHang;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
 public class TopKhachHangAdapter extends BaseAdapter {
-    //    private List<KhachHang> customerList;
     private final List<TopKhachHang> topKhachHangList;
     private final LayoutInflater inflater;
-
-//    public TopKhachHangAdapter(Context context, List<KhachHang> customerList) {
-//        this.context = context;
-//        this.customerList = customerList;
-//        this.inflater = LayoutInflater.from(context);
-//    }
 
 
     public TopKhachHangAdapter(Context context, List<TopKhachHang> topKhachHangList) {
@@ -35,7 +28,6 @@ public class TopKhachHangAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-//        return customerList.size();
         return topKhachHangList.size();
     }
 

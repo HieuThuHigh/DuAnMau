@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -6,9 +6,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.HDCTAdapter;
-import com.example.sampleandroidproject.database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Adapter.HDCTAdapter;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.R;
 
 import java.util.Objects;
 

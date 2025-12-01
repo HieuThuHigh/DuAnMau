@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import static android.view.View.GONE;
 
@@ -14,13 +14,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.TopKhachHangAdapter;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.model.KhachHang;
-import com.example.sampleandroidproject.model.TopKhachHang;
+import ph41045.fpoly.duanmau_ph41045.Adapter.TopKhachHangAdapter;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.TopKhachHang;
+import ph41045.fpoly.duanmau_ph41045.R;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 

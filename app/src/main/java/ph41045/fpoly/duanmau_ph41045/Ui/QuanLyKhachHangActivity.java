@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +7,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import com.example.sampleandroidproject.R;
-import com.example.sampleandroidproject.adapter.DanhMucAdapter;
-import com.example.sampleandroidproject.adapter.KhachHangAdapter;
-import com.example.sampleandroidproject.database.DatabaseHelper;
-import com.example.sampleandroidproject.model.DanhMuc;
-import com.example.sampleandroidproject.model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.Adapter.KhachHangAdapter;
+import ph41045.fpoly.duanmau_ph41045.Database.DatabaseHelper;
+import ph41045.fpoly.duanmau_ph41045.Model.KhachHang;
+import ph41045.fpoly.duanmau_ph41045.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;

@@ -1,14 +1,14 @@
-package com.example.sampleandroidproject.ui;
+package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sampleandroidproject.R;
+import ph41045.fpoly.duanmau_ph41045.R;
+
 
 public class ChaoActivity extends AppCompatActivity {
 
