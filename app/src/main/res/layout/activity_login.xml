@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Đăng nhập"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="#F63C05"
             android:textColor="@color/white"
             android:padding="10dp"
             android:layout_marginStart="10dp"/>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_doanh_thu"
+        android:title="Doanh thu"
+        android:icon="@drawable/ic_revenue"
+        app:showAsAction="never"
+        app:popupTheme="@style/DarkPopupMenu" />
+
+    <item
+        android:id="@+id/menu_top_san_pham"
+        android:title="Top sản phẩm"
+        android:icon="@drawable/ic_top_product"
+        app:showAsAction="never"
+        app:popupTheme="@style/DarkPopupMenu"/>
+
+    <item
+        android:id="@+id/menu_top_khach_hang"
+        android:title="Top khách hàng"
+        android:icon="@drawable/ic_top_customers"
+        app:showAsAction="never"
+        app:popupTheme="@style/DarkPopupMenu"/>
+
+    <item
+        android:id="@+id/menu_doi_mat_khau"
+        android:title="Đổi mật khẩu"
+        android:icon="@drawable/ic_password"
+        app:showAsAction="never"
+        app:popupTheme="@style/DarkPopupMenu"/>
+
+    <item
+        android:id="@+id/menu_dang_xuat"
+        android:title="Đăng xuất"
+        android:icon="@drawable/ic_logout"
+        app:showAsAction="never"
+        app:popupTheme="@style/DarkPopupMenu"/>
+
+</menu>
