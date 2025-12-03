@@ -63,11 +63,10 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, selectedYear, selectedMonth, selectedDay) -> {
-//                    String selectedDate = selectedYear
-//                            + "-" + String.format("%02d", selectedMonth + 1)
-//                            + "-" + String.format("%02d", selectedDay);
-                    String selectedDate = String.format("%02d/%02d/%04d", selectedDay, selectedMonth, selectedYear);
+                    String selectedDate = String.format("%02d/%02d/%04d",
+                            selectedDay, selectedMonth + 1, selectedYear);
                     editText.setText(selectedDate);
+
                 },
                 year, month, day
         );
