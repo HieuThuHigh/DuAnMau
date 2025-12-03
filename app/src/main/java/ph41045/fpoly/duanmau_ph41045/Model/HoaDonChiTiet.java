@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.model;
+package ph41045.fpoly.duanmau_ph41045.Model;
 
 public class HoaDonChiTiet {
     private String maCTHD;

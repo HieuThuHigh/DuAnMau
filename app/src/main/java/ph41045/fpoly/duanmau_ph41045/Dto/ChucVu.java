@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.dto;
+package ph41045.fpoly.duanmau_ph41045.Dto;
 
 import androidx.annotation.NonNull;
 
