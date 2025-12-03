@@ -4,6 +4,7 @@ import static android.view.View.GONE;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -47,6 +48,7 @@ public class ThongKeSanPhamActivity extends AppCompatActivity {
         edtNgayBatDau.setOnClickListener(v -> showDatePickerDialog(edtNgayBatDau));
         edtNgayKetThuc.setOnClickListener(v -> showDatePickerDialog(edtNgayKetThuc));
         findViewById(R.id.btnTopSanPham).setOnClickListener(v -> {
+
             if (edtNgayBatDau.getText().toString().isEmpty()
                     || edtNgayKetThuc.getText().toString().isEmpty()
                     || edtSoLuong.getText().toString().isEmpty()) {

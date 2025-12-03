@@ -2,6 +2,10 @@ package ph41045.fpoly.duanmau_ph41045.Ui;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,6 +21,7 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
     private EditText edtNgayBatDau, edtNgayKetThuc;
     private TextView tvDoanhThu;
     private DatabaseHelper databaseHelper;
+    private static final String TAG = "ThongKeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +41,32 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         edtNgayBatDau.setOnClickListener(v -> showDatePickerDialog(edtNgayBatDau));
         edtNgayKetThuc.setOnClickListener(v -> showDatePickerDialog(edtNgayKetThuc));
         findViewById(R.id.btnThongKeDoanhThu).setOnClickListener(v -> {
-            String ngayBatDau = edtNgayBatDau.getText().toString().trim();
-            String ngayKetThuc = edtNgayKetThuc.getText().toString().trim();
-            if (ngayBatDau.isEmpty() || ngayKetThuc.isEmpty()) {
-                tvDoanhThu.setText("Vui lòng nhập đầy đủ ngày bắt đầu và ngày kết thúc.");
-                return;
-            }
+            try {
+                String ngayBatDauInput = edtNgayBatDau.getText().toString().trim();
+                String ngayKetThucInput = edtNgayKetThuc.getText().toString().trim();
 
-            int doanhThu = databaseHelper.layDoanhThu(ngayBatDau, ngayKetThuc);
-            tvDoanhThu.setText("Doanh thu: " + doanhThu + " VND");
+                if (ngayBatDauInput.isEmpty() || ngayKetThucInput.isEmpty()) {
+                    tvDoanhThu.setText("Vui lòng nhập đầy đủ ngày bắt đầu và ngày kết thúc.");
+                    return;
+                }
+
+                // Parse từ dd/MM/yyyy (người dùng nhập) → yyyy-MM-dd (DB)
+                SimpleDateFormat userFormat = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat dbFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                String ngayBD = dbFormat.format(userFormat.parse(ngayBatDauInput));
+                String ngayKT = dbFormat.format(userFormat.parse(ngayKetThucInput));
+
+                int doanhThu = databaseHelper.layDoanhThu(ngayBD, ngayKT);
+                tvDoanhThu.setText("Doanh thu: " + doanhThu + " VND");
+
+            } catch (ParseException e) {
+                tvDoanhThu.setText("Định dạng ngày không hợp lệ. Vui lòng nhập dd/MM/yyyy");
+                e.printStackTrace();
+            }
         });
+
+
     }
 
     @Override
