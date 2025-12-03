@@ -142,7 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(TAO_BANG_KHACH_HANG);
         db.execSQL(TAO_BANG_HOA_DON);
         db.execSQL(TAO_BANG_HDCT);
-        db.execSQL("INSERT INTO NhanVien VALUES ('admin01', 'Admin', 'HN', 1, 10000000, '123456')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('prodev', 'Hiếu Pro Dev', 'Bac Giang', 1,  9999999.0, 'hieu123')");
 
     }
     @Override
