@@ -1,4 +1,4 @@
-package com.example.sampleandroidproject.common;
+package ph41045.fpoly.duanmau_ph41045.Common;
 
 public class Common {
     private static GioHang gioHang;

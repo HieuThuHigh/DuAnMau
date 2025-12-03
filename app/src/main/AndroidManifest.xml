@@ -13,7 +13,49 @@
         android:theme="@style/Theme.DuAnMau_Ph41045"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Ui.EditKhachHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.EditDanhMucActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.EditNhanVienActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.QuanLyNhanVienActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.HDCTActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.QuanLyDanhMucActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.QuanLyHoaDonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.DoiMatKhauActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.EditSanPhamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.GioHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.QuanLyKhachHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.ThongKeSanPhamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.ThongKeKhachHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.ChaoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +63,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Ui.ThongKeDoanhThuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.QuanLySanPhamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

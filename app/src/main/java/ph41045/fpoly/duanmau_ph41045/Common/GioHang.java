@@ -1,11 +1,10 @@
-package com.example.sampleandroidproject.common;
+package ph41045.fpoly.duanmau_ph41045.Common;
 
-import com.example.sampleandroidproject.model.SanPham;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
+import ph41045.fpoly.duanmau_ph41045.Model.SanPham;
 
 public class GioHang {
     private List<GioHangItem> danhSachGioHang;

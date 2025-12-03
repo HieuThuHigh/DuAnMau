@@ -1,8 +1,9 @@
-package com.example.sampleandroidproject.common;
+package ph41045.fpoly.duanmau_ph41045.Common;
 
 import androidx.annotation.Nullable;
 
-import com.example.sampleandroidproject.model.SanPham;
+import ph41045.fpoly.duanmau_ph41045.Model.SanPham;
+
 
 public class GioHangItem {
     private SanPham sp;
