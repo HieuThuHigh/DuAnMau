@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF0E00"
+        android:background="#FF1100"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Thống kê top sản phẩm"
         app:navigationIcon="?attr/homeAsUpIndicator" />

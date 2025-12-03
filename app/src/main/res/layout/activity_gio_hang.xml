@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/design_default_color_primary"
+        android:background="#06DDFF"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:title="Giỏ hàng" />
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="Thanh toán"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="#00DFFF"
             android:textColor="@android:color/white"
             android:padding="12dp"
             android:textSize="25sp" />

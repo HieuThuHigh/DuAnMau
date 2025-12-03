@@ -3,59 +3,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="24dp"
+    android:background="@color/white">
 
+    <!-- Mã danh mục -->
     <LinearLayout
         android:id="@+id/layoutMaDanhMuc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="Mã Danh Mục:" />
+            android:text="Mã Danh Mục:"
+            android:textSize="16sp"
+            android:textColor="#333333"/>
 
         <EditText
             android:id="@+id/edtMaDanhMuc"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background_normal"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
     </LinearLayout>
+
+    <!-- Tên danh mục -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="Tên Danh Mục" />
+            android:text="Tên Danh Mục:"
+            android:textSize="16sp"
+            android:textColor="#333333"/>
 
         <EditText
             android:id="@+id/edtTenSanPham"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_weight="1"
-            android:hint="Nhập tên danh mục" />
+            android:hint="Nhập tên danh mục"
+            android:background="@android:drawable/editbox_background_normal"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
     </LinearLayout>
 
     <!-- Nút Lưu -->
     <Button
         android:id="@+id/btnLuu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Lưu"
-        android:layout_marginTop="16dp" />
+        android:backgroundTint="#F24811"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
 
     <!-- Nút Hủy -->
     <Button
         android:id="@+id/btnHuy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:text="Hủy"
-        android:layout_marginTop="8dp" />
+        android:backgroundTint="#9E9E9E"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
 
 </LinearLayout>

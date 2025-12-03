@@ -1,161 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"> <!-- Đảm bảo nội dung có thể cuộn -->
+    android:fillViewport="true"
+    android:background="#F3F6FA">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:background="@color/white">
+        android:padding="12dp">
 
         <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Đăng nhập"
+            android:background="#1976D2"
+            android:title="Đăng nhập"
+            android:titleTextColor="@android:color/white"
             app:navigationIcon="?attr/homeAsUpIndicator" />
 
         <!-- Header -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:background="#E6DEDE"
-            android:layout_marginTop="8dp">
+            android:layout_height="100dp"
+            android:background="#D8E6F5"
+            android:layout_marginTop="10dp"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome to JPMart"
-                android:textColor="#2e3d3d"
+                android:textColor="#0D47A1"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:paddingLeft="45dp"
-                android:paddingTop="30dp"/>
+                android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:src="@drawable/logo_jpmart"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true" />
         </RelativeLayout>
 
         <!-- Background Welcome -->
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="@drawable/background_welcome"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="170dp"
+            android:src="@drawable/background_welcome"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp" />
 
-        <LinearLayout
-            android:id="@+id/lnThongKe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- Vùng 1: Thống kê -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Thống kê"
-                android:textAlignment="center"
-                android:textColor="#2196F3"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:padding="10dp"
-                android:useDefaultMargins="true">
-
-                <!-- Doanh thu -->
-                <LinearLayout
-                    android:id="@+id/lnDoanhThu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/img_doanh_thu"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="10dp"
-                        app:srcCompat="@drawable/ic_revenue"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Doanh thu"
-                        android:textAlignment="center"
-                        android:textColor="#2e3d3d"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lnTopSanPham"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/img_top_san_pham"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="10dp"
-                        app:srcCompat="@drawable/ic_top_products"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Top sản phẩm"
-                        android:textAlignment="center"
-                        android:textColor="#2e3d3d"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lnTopKhachHang"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/img_top_khach_hang"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:paddingLeft="10dp"
-                        app:srcCompat="@drawable/ic_top_customers"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Top khách hàng"
-                        android:textAlignment="center"
-                        android:textColor="#2e3d3d"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </GridLayout>
-
-        </LinearLayout>
-        <!-- Vùng 2: Quản lý -->
+        <!-- Vùng 1: Thống kê -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quản lý"
+            android:text="Thống kê"
             android:textAlignment="center"
-            android:textColor="#2196F3"
+            android:textColor="#1565C0"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="14dp" />
 
         <GridLayout
             android:layout_width="match_parent"
@@ -164,18 +72,113 @@
             android:padding="10dp"
             android:useDefaultMargins="true">
 
+            <!-- Doanh thu -->
+            <LinearLayout
+                android:id="@+id/lnDoanhThu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_doanh_thu"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/ic_revenue" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Doanh thu"
+                    android:textAlignment="center"
+                    android:textColor="#37474F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Top sản phẩm -->
+            <LinearLayout
+                android:id="@+id/lnTopSanPham"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_top_san_pham"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/ic_top_products" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top sản phẩm"
+                    android:textAlignment="center"
+                    android:textColor="#37474F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Top khách hàng -->
+            <LinearLayout
+                android:id="@+id/lnTopKhachHang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_top_khach_hang"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/ic_top_customers" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top khách hàng"
+                    android:textAlignment="center"
+                    android:textColor="#37474F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </GridLayout>
+
+        <!-- Vùng 2: Quản lý -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quản lý"
+            android:textAlignment="center"
+            android:textColor="#1565C0"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:padding="10dp"
+            android:useDefaultMargins="true">
+
+            <!-- Sản phẩm -->
             <LinearLayout
                 android:id="@+id/lnSanPham"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/img_san_pham"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingLeft="10dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     app:srcCompat="@drawable/ic_products" />
 
                 <TextView
@@ -183,47 +186,49 @@
                     android:layout_height="wrap_content"
                     android:text="Sản phẩm"
                     android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Khách hàng -->
             <LinearLayout
                 android:id="@+id/lnKhachHang"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/img_khach_hang"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingLeft="10dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     app:srcCompat="@drawable/ic_customers" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:text="Khách hàng"
                     android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Hóa đơn -->
             <LinearLayout
                 android:id="@+id/lnHoaDon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/img_hoa_don"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     app:srcCompat="@drawable/ic_orders" />
 
                 <TextView
@@ -231,23 +236,24 @@
                     android:layout_height="wrap_content"
                     android:text="Hóa đơn"
                     android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Danh mục -->
             <LinearLayout
                 android:id="@+id/lnDanhMuc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/img_danh_muc"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingLeft="10dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     app:srcCompat="@drawable/ic_categories" />
 
                 <TextView
@@ -255,23 +261,24 @@
                     android:layout_height="wrap_content"
                     android:text="Danh mục"
                     android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Nhân viên -->
             <LinearLayout
                 android:id="@+id/lnNhanVien"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/img_nhan_vien"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingLeft="10dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     app:srcCompat="@drawable/employee" />
 
                 <TextView
@@ -279,73 +286,77 @@
                     android:layout_height="wrap_content"
                     android:text="Nhân viên"
                     android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
         </GridLayout>
 
-        <!-- Vùng 3: User -->
+        <!-- Vùng 3: Người dùng -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Người dùng"
             android:textAlignment="center"
-            android:textColor="#2196F3"
+            android:textColor="#1565C0"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="14dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Đổi mật khẩu -->
             <LinearLayout
                 android:id="@+id/lnDoiMatKhau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center">
+                android:gravity="center">
+
                 <ImageView
                     android:id="@+id/img_doi_mat_khau"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:srcCompat="@drawable/ic_password"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/ic_password" />
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đổi mật khẩu"
-                    android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
 
+            <!-- Đăng xuất -->
             <LinearLayout
                 android:id="@+id/lnDangXuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center">
+                android:gravity="center"
+                android:layout_marginLeft="40dp">
+
                 <ImageView
                     android:id="@+id/img_logout"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:srcCompat="@drawable/ic_logout"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="25dp"/>
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/ic_logout" />
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đăng xuất"
-                    android:textAlignment="center"
-                    android:textColor="#2e3d3d"
+                    android:textColor="#37474F"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
