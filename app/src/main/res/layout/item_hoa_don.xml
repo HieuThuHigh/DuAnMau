@@ -1,141 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@android:color/white">
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="16dp">
 
-    <!-- Thông tin hóa đơn -->
-    <LinearLayout
+    <!-- Mã hóa đơn -->
+    <TextView
+        android:id="@+id/tvMaHoaDon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:text="Mã hóa đơn"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgXoaHoaDon"
+        android:layout_marginEnd="16dp"/>
 
-        <!-- Mã hóa đơn -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp">
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Mã hóa đơn:"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <TextView
-                android:id="@+id/tvMaHoaDon"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Mã hóa đơn"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_weight="1" />
-        </LinearLayout>
+    <!-- Tên nhân viên -->
+    <TextView
+        android:id="@+id/tvTenNhanVienLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nhân viên:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMaHoaDon" />
 
-        <!-- Tên nhân viên -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp">
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Tên nhân viên:"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp" />
-            <TextView
-                android:id="@+id/tvTenNhanVien"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Tên nhân viên"
-                android:textSize="16sp"
-                android:textColor="@android:color/holo_red_dark"
-                android:layout_weight="1" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/tvTenNhanVien"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Tên nhân viên"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTenNhanVienLabel"
+        app:layout_constraintStart_toEndOf="@id/tvTenNhanVienLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvMaHoaDon"/>
 
-        <!-- Tên khách hàng -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp">
+    <!-- Tên khách hàng -->
+    <TextView
+        android:id="@+id/tvTenKhachHangLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Khách hàng:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTenNhanVienLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvTenNhanVienLabel"/>
 
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
-                android:text="Tên khách hàng:"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-            <TextView
-                android:id="@+id/tvTenKhachHang"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Tên khách hàng"
-                android:textSize="16sp"
-                android:textColor="@android:color/holo_red_dark"
-                android:layout_weight="1" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/tvTenKhachHang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Tên khách hàng"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTenKhachHangLabel"
+        app:layout_constraintStart_toEndOf="@id/tvTenKhachHangLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvMaHoaDon"/>
 
-        <!-- Ngày lập -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp">
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Ngày lập:"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp" />
-            <TextView
-                android:id="@+id/tvNgayLap"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Ngày lập"
-                android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_weight="1" />
-        </LinearLayout>
+    <!-- Tổng tiền -->
+    <TextView
+        android:id="@+id/tvTongTien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tổng tiền"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTenKhachHangLabel" />
 
-        <!-- Tổng tiền -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Tổng tiền:"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp" />
-            <TextView
-                android:id="@+id/tvTongTien"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Tổng tiền"
-                android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
+    <!-- Ngày lập -->
+    <TextView
+        android:id="@+id/tvNgayLap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày lập"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTongTien"
+        app:layout_constraintEnd_toEndOf="@+id/tvMaHoaDon" />
 
     <!-- Nút xóa hóa đơn -->
     <ImageView
         android:id="@+id/imgXoaHoaDon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
         android:src="@android:drawable/ic_menu_delete"
-        app:tint="@android:color/holo_red_dark" />
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/holo_red_light" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

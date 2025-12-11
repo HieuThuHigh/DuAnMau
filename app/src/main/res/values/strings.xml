@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DuAnMau_Ph41045</string>
+    <string name="quan_ly_hoa_don_title">Quản lý hóa đơn</string>
+    <string name="danh_sach_hoa_don_header">Danh sách hóa đơn</string>
 </resources>

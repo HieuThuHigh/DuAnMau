@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="#F2F6FF">
+    android:background="@drawable/bg_gradient">
 
+    <!-- Image chính (imgChao) để bạn xử lý code hoặc load ảnh -->
     <ImageView
         android:id="@+id/imgChao"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:background="#E0E7FF"
-        android:padding="12dp" />
-</LinearLayout>
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_gio_hang"
+        android:background="@drawable/circle_white"
+        android:padding="24dp"
+        android:elevation="12dp"
+        android:scaleType="centerInside" />
+
+    <!-- Dòng chữ lớn -->
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imgChao"
+        android:layout_marginTop="40dp"
+        android:text="JPMart Xin Chào!"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="#FF0000"
+        android:shadowColor="#80000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="12" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/txtSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtWelcome"
+        android:layout_marginTop="12dp"
+        android:text="Rất hân hạnh được phục vụ!"
+        android:textSize="18sp"
+        android:textColor="#EAF1FF" />
+
+</RelativeLayout>

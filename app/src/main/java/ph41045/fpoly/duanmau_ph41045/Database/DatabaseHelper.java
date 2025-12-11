@@ -143,6 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(TAO_BANG_HOA_DON);
         db.execSQL(TAO_BANG_HDCT);
         db.execSQL("INSERT INTO NhanVien VALUES ('prodev', 'Hiếu Pro Dev', 'Bac Giang', 1,  9999999.0, 'hieu123')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('Hieunv', 'Hiếu Nhân Viên', 'Bac Giang', 0,  33333.0, 'hieu123nv')");
 
     }
     @Override
@@ -156,6 +157,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + BANG_HOADONCHITIET);
         onCreate(db);
     }
+
     public boolean themSanPham(SanPham sanPham) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues value = new ContentValues();
